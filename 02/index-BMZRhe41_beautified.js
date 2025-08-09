@@ -14308,79 +14308,97 @@ function _S({
     const [n, r] = x.useState([]), [o, s] = x.useState({
         cols: 0,
         rows: 0
-    }), i = x.useRef(), l = () => cf.charAt(Math.floor(Math.random() * cf.length)), a = () => df[Math.floor(Math.random() * df.length)], u = m => {
-        const w = Math.floor(Math.random() * 25) + 8,
-            h = [];
-        if (Math.random() < .2) {
-            const f = a(),
-                g = Math.floor(Math.random() * (w - f.length));
-            for (let S = 0; S < w; S++) S >= g && S < g + f.length ? h.push(f[S - g]) : h.push(l())
-        } else
-            for (let f = 0; f < w; f++) h.push(l());
-        return {
-            id: Math.random(),
-            characters: h,
-            speed: Math.random() * 2.5 + .5,
-            y: -w * 22,
-            opacity: Math.random() * .6 + .4,
-            isActive: Math.random() < .15,
-            length: w
-        }
-    }, c = () => {
-        const m = window.innerWidth < 768,
-            w = m ? 12 : 16,
-            h = m ? 18 : 22,
-            f = Math.floor(window.innerWidth / w),
-            g = Math.floor(window.innerHeight / h);
-        s({
-            cols: f,
-            rows: g
-        });
-        const S = [],
-            k = Math.floor(f * .6),
-            N = Array.from({
-                length: f
-            }, (P, T) => T);
-        for (let P = N.length - 1; P > 0; P--) {
-            const T = Math.floor(Math.random() * (P + 1));
-            [N[P], N[T]] = [N[T], N[P]]
-        }
-        for (let P = 0; P < k; P++) {
-            const T = N[P],
-                O = u();
-            O.id = T, O.y = -Math.random() * 800, S.push(O)
-        }
-        r(S)
-    }, d = () => {
-        r(m => {
-            const w = m.map(S => ({
-                    ...S,
-                    y: S.y + S.speed
-                })).filter(S => S.y < window.innerHeight + 100),
-                f = window.innerWidth < 768 ? 12 : 16,
-                g = Math.floor(window.innerWidth / f);
-            if (Math.random() < .08 && w.length < g * .8) {
-                const S = new Set(w.map(N => Math.floor(N.id))),
-                    k = Array.from({
-                        length: g
-                    }, (N, P) => P).filter(N => !S.has(N));
-                if (k.length > 0) {
-                    const N = k[Math.floor(Math.random() * k.length)],
-                        P = u();
-                    P.id = N, w.push(P)
-                }
-            }
-            return w.map(S => {
-                if (Math.random() < .1) {
-                    const k = S.characters.map(N => Math.random() < .3 ? l() : N);
-                    return {
-                        ...S,
-                        characters: k
-                    }
-                }
-                return S
-            })
-        })
+    }), i = x.useRef(), l = () => cf.charAt(
+      Math.floor(
+        Math.random() * cf.length
+      )
+    ),
+    a = () => df[
+      Math.floor(
+        Math.random() * df.length
+      )
+    ],
+    u = m => {
+      const 
+        w = Math.floor(Math.random() * 25) + 8,
+        h = [];
+      if (Math.random() < .2) {
+        const 
+          f = a(),
+          g = Math.floor(
+            Math.random() * (w - f.length)
+          );
+        for (let S = 0; S < w; S++)
+          S >= g && S < g + f.length ? h.push(f[S - g]) : h.push(l())
+      } else
+          for (let f = 0; f < w; f++)
+            h.push(l());
+      return {
+          id: Math.random(),
+          characters: h,
+          speed: Math.random() * 2.5 + .5,
+          y: -w * 22,
+          opacity: Math.random() * .6 + .4,
+          isActive: Math.random() < .15,
+          length: w
+      }
+    },
+    c = () => {
+      const m = window.innerWidth < 768,
+        w = m ? 12 : 16,
+        h = m ? 18 : 22,
+        f = Math.floor(window.innerWidth / w),
+        g = Math.floor(window.innerHeight / h);
+      s({
+        cols: f,
+        rows: g
+      });
+      const S = [],
+        k = Math.floor(f * .6),
+        N = Array.from({
+            length: f
+        }, (P, T) => T);
+      for (let P = N.length - 1; P > 0; P--) {
+        const T = Math.floor(Math.random() * (P + 1));
+        [N[P], N[T]] = [N[T], N[P]]
+      }
+      for (let P = 0; P < k; P++) {
+        const T = N[P],
+          O = u();
+        O.id = T, O.y = -Math.random() * 800, S.push(O)
+      }
+      r(S)
+    },
+    d = () => {
+      r(m => {
+          const w = m.map(S => ({
+                  ...S,
+                  y: S.y + S.speed
+              })).filter(S => S.y < window.innerHeight + 100),
+              f = window.innerWidth < 768 ? 12 : 16,
+              g = Math.floor(window.innerWidth / f);
+          if (Math.random() < .08 && w.length < g * .8) {
+              const S = new Set(w.map(N => Math.floor(N.id))),
+                  k = Array.from({
+                      length: g
+                  }, (N, P) => P).filter(N => !S.has(N));
+              if (k.length > 0) {
+                  const N = k[Math.floor(Math.random() * k.length)],
+                      P = u();
+                  P.id = N, w.push(P)
+              }
+          }
+          return w.map(S => {
+              if (Math.random() < .1) {
+                  const k = S.characters.map(N => Math.random() < .3 ? l() : N);
+                  return {
+                      ...S,
+                      characters: k
+                  }
+              }
+              return S
+          })
+      })
     };
     if (x.useEffect(() => {
             c();
