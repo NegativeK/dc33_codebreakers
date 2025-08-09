@@ -1,13 +1,21 @@
 # Puzzle
 QR code with a bunch of manual manipulation.
 
-# Working
-https://docs.google.com/spreadsheets/d/1-Dlc5Pqcjt93nVAzIa_KuebVUMpVAVotAOZgOIvPioI/edit?usp=sharing
+Grabbed from https://pfjs.com/ .
 
 # Answer
 code-two.replit.app
 
-# Ignore this
+Each symbol represents a white or a black cell. You can quickly see the 3x
+fiducial markers from a QR code and adjust which are white/black based on that.
+Might've been my transcription, but the rows between the top and bottom
+fiducials had to be flipflopped to match the QR code spec. Key in on the
+alternating dots between the left fiducials as well as the fact that the
+fiducials have a white border.
+
+See spreadsheet for the tedious crap.
+
+## Invalid path
 1  0000000110000010010000000
 2  0111110110110001010111110
 3  0100010100111100101000100
