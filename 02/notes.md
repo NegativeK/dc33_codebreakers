@@ -4,6 +4,9 @@ https://code-two.replit.app
 # Notes
 Some of the letters scrolling by are Latin? Probably not.
 
+Online hint: "Hint 3: z1on is the first half"
+https://www.reddit.com/r/Defcon/comments/1mhsrkc/def_con_33_code_breaker_challenge/
+
 ## UI
 In the Matrix input field, the light goes green at six characters.
 
