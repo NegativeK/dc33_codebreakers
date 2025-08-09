@@ -6,6 +6,7 @@ curl 'https://code-two.replit.app/api/challenge/submit' \
   --data-raw '{"code": "undergroundnet.ru"}'
 """
 
+import itertools
 import requests
 import time
 
@@ -186,7 +187,17 @@ def clean_string(contents: str) -> set[str]:
 
 
 def main():
-    guesses = clean_string(GUESSES[1])
+    # guesses = clean_string(GUESSES[1])
+    words = [
+        "m4trix",
+        "sy5tem",
+        "z1on",
+        "m0rpheus",
+        "n3o",
+        "tr1nity",
+    ]
+    pairs = itertools.product(words, words)
+    guesses = (pair[0] + pair[1] for pair in pairs)
 
     for guess in guesses:
         cookies = {
